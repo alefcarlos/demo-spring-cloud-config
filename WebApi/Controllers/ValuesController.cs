@@ -14,24 +14,19 @@ namespace WebApi.Controllers
     public class ValuesController : ControllerBase
     {
         private IOptionsSnapshot<ConfigServerData> _configServerData { get; set; }
-        private ConfigServerClientSettingsOptions _configServerClientSettingsOptions { get; set; }
 
-        private IConfigurationRoot _config { get; set; }
-
-        public ValuesController(IConfigurationRoot config, IOptionsSnapshot<ConfigServerData> configServerData, IOptions<ConfigServerClientSettingsOptions> configServerClientSettingsOptions )
+        public ValuesController(IOptionsSnapshot<ConfigServerData> configServerData)
         {
             _configServerData = configServerData;
-            _config = config;
-            _configServerClientSettingsOptions= configServerClientSettingsOptions.Value;
         }
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<object>> Get()
         {
             var data = _configServerData.Value;
 
-            return new string[] { data.ConfigurationA, data.ConfigurationB };
+            return new object[] { data.ConfigurationA, data.ConfigurationB, data.ConfigurationD.E };
         }
     }
 }
