@@ -11,7 +11,7 @@ docker run -p 8888:8888 hyness/spring-cloud-config-server --spring.cloud.config.
 
 Podemos configurar o servidor passando os parâmetros desajados:
 
-* `--spring.cloud.config.server.git.uri= Url do repositório
+* `--spring.cloud.config.server.git.uri` Url do repositório
 * `--spring.cloud.config.server.git.searchPaths` A maneira que devemos procurar os arquivos de configuração
 
 Essa maneira de pesquisar arquivos nos permite uma organização por hierarquia.
