@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using Steeltoe.Extensions.Configuration.ConfigServer;
 
 namespace WebApi.Controllers
 {
@@ -13,13 +14,15 @@ namespace WebApi.Controllers
     public class ValuesController : ControllerBase
     {
         private IOptionsSnapshot<ConfigServerData> _configServerData { get; set; }
+        private ConfigServerClientSettingsOptions _configServerClientSettingsOptions { get; set; }
 
         private IConfigurationRoot _config { get; set; }
 
-        public ValuesController(IConfigurationRoot config, IOptionsSnapshot<ConfigServerData> configServerData)
+        public ValuesController(IConfigurationRoot config, IOptionsSnapshot<ConfigServerData> configServerData, IOptions<ConfigServerClientSettingsOptions> configServerClientSettingsOptions )
         {
             _configServerData = configServerData;
             _config = config;
+            _configServerClientSettingsOptions= configServerClientSettingsOptions.Value;
         }
 
         // GET api/values
