@@ -1,2 +1,2 @@
-configurationA: "a"
-configurationB: "C"
+configurationA: "a-prod"
+configurationB: "C-prod"
