@@ -9,7 +9,12 @@
 docker run -p 8888:8888 hyness/spring-cloud-config-server --spring.cloud.config.server.git.uri=https://github.com/alefcarlos/demo-spring-cloud-config --spring.cloud.config.server.git.searchPaths='config/{application}/{profile}'
 ```
 
-Na variável `SPRING_CLOUD_CONFIG_SERVER_GIT_URI` devemos informar qual a url do repo que contém os arquivos de configuração.
+Podemos configurar o servidor passando os parâmetros desajados:
+
+`--spring.cloud.config.server.git.uri=`- Url do repositório
+`--spring.cloud.config.server.git.searchPaths`-  A maneira que devemos procurar os arquivos de configuração
+
+Essa maneira de pesquisar arquivos nos permite uma organização por hierarquia.
 
 ## Configurando a aplicação
 
@@ -32,6 +37,6 @@ Em `application.name` devemos informar o nome de nossa aplicação, que também 
 
 ## Utilizando vários ambientes
 
-Para cada ambiente devemos criar um arquivo como sufixo `-[environment]`.
+> É utilizado o valor da variável `ASPNETCORE_ENVIRONMENT` para obter o ambiente atual
 
-Por exemplo, `demo-development.yaml`, esse valor vem da variável `ASPNETCORE_ENVIRONMENT`.
+Basta criar uma pasta com o nome do ambiente desajado dentro da pasta config, nesse exemplo utilizo `development` e `production`.
