@@ -1,2 +1,4 @@
 configurationA: "a"
 configurationB: "C"
+configurationD:
+  E: 10
