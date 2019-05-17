@@ -6,7 +6,7 @@
 ## Subindo um servidor
 
 ```bash
-docker run -p 8888:8888 -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/alefcarlos/demo-spring-cloud-config hyness/spring-cloud-config-server
+docker run -p 8888:8888 hyness/spring-cloud-config-server --spring.cloud.config.server.git.uri=https://github.com/alefcarlos/demo-spring-cloud-config --spring.cloud.config.server.git.searchPaths='config/{application}/{profile}'
 ```
 
 Na variável `SPRING_CLOUD_CONFIG_SERVER_GIT_URI` devemos informar qual a url do repo que contém os arquivos de configuração.
