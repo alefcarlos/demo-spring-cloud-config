@@ -26,7 +26,7 @@ namespace WebApi.Controllers
         {
             var data = _configServerData.Value;
 
-            return new object[] { data.ConfigurationA, data.ConfigurationB, data.ConfigurationD.E };
+            return new object[] { data.ConfigurationA, data.ConfigurationB, data.ConfigurationD?.E };
         }
     }
 }
