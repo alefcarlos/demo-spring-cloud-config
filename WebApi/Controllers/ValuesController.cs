@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 namespace WebApi.Controllers
@@ -13,9 +14,12 @@ namespace WebApi.Controllers
     {
         private IOptionsSnapshot<ConfigServerData> _configServerData { get; set; }
 
-        public ValuesController(IOptionsSnapshot<ConfigServerData> configServerData)
+        private IConfigurationRoot _config { get; set; }
+
+        public ValuesController(IConfigurationRoot config, IOptionsSnapshot<ConfigServerData> configServerData)
         {
             _configServerData = configServerData;
+            _config = config;
         }
 
         // GET api/values

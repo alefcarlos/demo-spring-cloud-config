@@ -31,6 +31,9 @@ namespace WebApi
             // Optional: Adds ConfigServerClientOptions to service container
             services.ConfigureConfigServerClientOptions(Configuration);
 
+            // Optional:  Adds IConfiguration and IConfigurationRoot to service container
+            services.AddConfiguration(Configuration);
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Adds the configuration data POCO configured with data returned from the Spring Cloud Config Server
